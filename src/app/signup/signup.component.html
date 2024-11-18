@@ -1,0 +1,179 @@
+
+<div class="main-container">
+  <div class="signup-container">
+      <h2>Sign Up</h2>
+      <form (ngSubmit)="signup()" class="signup-form" #signupForm="ngForm">
+          <!-- Username Field -->
+          <div class="form-group">
+              <label for="username">Username</label>
+              <input 
+                  type="text" 
+                  id="username" 
+                  [(ngModel)]="user.name" 
+                  name="username" 
+                  required 
+                  #username="ngModel" 
+                  placeholder="Enter your username"
+                  [class.is-invalid]="username.invalid && username.touched">
+              <div *ngIf="username.invalid && username.touched" class="error-message">
+                  Username is required.
+              </div>
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input 
+                  type="email" 
+                  id="email" 
+                  [(ngModel)]="user.email" 
+                  name="email" 
+                  required 
+                  email 
+                  #email="ngModel" 
+                  placeholder="Enter your email address"
+                  [class.is-invalid]="email.invalid && email.touched">
+              <div *ngIf="email.invalid && email.touched" class="error-message">
+                  <div *ngIf="email.errors?.['required']">Email is required.</div>
+                  <div *ngIf="email.errors?.['email']">Enter a valid email address.</div>
+              </div>
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-group">
+              <label for="password">Password</label>
+             
+              <div class="password-container">
+                <input 
+                [type]="isPasswordVisible ? 'text' : 'password'"
+                id="password" 
+                [(ngModel)]="user.password" 
+                name="password" 
+                required 
+                minlength="6" 
+                #password="ngModel" 
+                placeholder="Enter your password"
+                [class.is-invalid]="password.invalid && password.touched">
+                <button type="button" (click)="togglePasswordVisibility()" class="toggle-btn">
+                  <i class="fas" [ngClass]="isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                </button>
+              </div>
+              <div *ngIf="password.invalid && password.touched" class="error-message">
+                <div *ngIf="password.errors?.['required']">Password is required.</div>
+                <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mobileNumber">Mobile Number</label>
+            <input 
+                type="tel" 
+                id="mobileNumber" 
+                [(ngModel)]="user.mobileNumber" 
+                name="mobileNumber" 
+                required 
+                maxlength="10" 
+                pattern="^[0-9]{10}$" 
+                #mobileNumber="ngModel" 
+                placeholder="Enter your mobile number"
+                [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched">
+            <div *ngIf="mobileNumber.invalid && mobileNumber.touched" class="error-message">
+                <div *ngIf="mobileNumber.errors?.['required']">Mobile number is required.</div>
+                <div *ngIf="mobileNumber.errors?.['pattern']">Enter a valid 10-digit mobile number.</div>
+                <div *ngIf="mobileNumber.errors?.['maxlength']">Mobile number cannot exceed 10 digits.</div>
+            </div>
+        </div>
+        
+
+          <!-- City Field -->
+          <div class="form-group">
+              <label for="city">City</label>
+              <input 
+                  type="text" 
+                  id="city" 
+                  [(ngModel)]="user.city" 
+                  name="city" 
+                  required 
+                  #city="ngModel" 
+                  placeholder="Enter your city"
+                  [class.is-invalid]="city.invalid && city.touched">
+              <div *ngIf="city.invalid && city.touched" class="error-message">
+                  City is required.
+              </div>
+          </div>
+
+          <!-- Role Field -->
+          <div class="form-group">
+              <label for="role">Role</label>
+              <select 
+                  id="role" 
+                  [(ngModel)]="user.role" 
+                  name="role" 
+                  required 
+                  #role="ngModel" 
+                  [class.is-invalid]="role.invalid && role.touched">
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+              </select>
+              <div *ngIf="role.invalid && role.touched" class="error-message">
+                  Role is required.
+              </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-action">
+              <button type="submit" class="submit-btn" [disabled]="signupForm.invalid">Sign Up</button>
+          </div>
+      </form>
+  </div>
+</div>
+
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true" [ngClass]="{'show': showModal}" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Success</h5>
+          <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          User Registered Successfully!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div>
+      <h2>Sign Up</h2>
+      <form (ngSubmit)="signup()">
+        <label for="username">Username</label>
+        <input type="text" id="username" [(ngModel)]="user.name" name="username" required>
+    
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="user.email" name="email" required>
+    
+        <label for="password">Password</label>
+        <input type="password" id="password" [(ngModel)]="user.password" name="password" required>
+     
+      <label for="mobileNumber">Mobile Number</label>
+      <input type="tel" id="mobileNumber" [(ngModel)]="user.mobileNumber" name="mobileNumber" required>
+  
+    
+      <label for="city">City</label>
+      <input type="text" id="city" [(ngModel)]="user.city" name="city" required>
+  
+    
+      <label for="role">Role</label>
+      <select id="role" [(ngModel)]="user.role" name="role" required>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+    
+     -->

@@ -1,0 +1,112 @@
+<div class="dashboard-container">
+  
+    <div class="filter-section">
+      <div class="bookings"><button class="booking-btn" (click)="navigateToBooking()">My Bookings</button></div>
+   
+        <select id="city" [(ngModel)]="selectedCity" (change)="filterHallsByCity()">
+            <option value="">All Cities</option>
+            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+        </select>
+
+        <div class="search-bar">
+            <input id="search"  type="text" [(ngModel)]="searchQuery" (input)="filterHallsByName()" placeholder="Search halls...."
+                class="form-control" />
+        </div>
+
+        <!-- <button (click)="navigateToBooking()">My Bookings</button> -->
+         
+      
+
+        <!-- <button [routerLink]="['/user-bookings']">My Bookings</button> -->
+
+    </div>
+
+      
+   
+
+    <div >
+        <div *ngIf="hasNoHalls" class="no-halls-message">
+            No halls available for now
+        </div>
+
+
+        <div *ngIf="!hasNoHalls" class="hall-list">
+            <div *ngFor="let hall of filteredHalls" class="hall-card" [routerLink]="['/hall-detail', hall.id]">
+                <h3>{{ hall.name }}</h3>
+                <p>Location: {{ hall.location }}</p>
+                <p>Capacity: {{ hall.capacity }} seats</p>
+                <p>Starting From: {{ hall.cost | currency:'INR':'symbol' }}</p>
+                <!-- <img *ngIf="hall.imageUrl" [src]="hall.imageUrl" alt="Hall Image" class="hall-image" /> -->
+
+
+                <div class="button-row">
+                    <button class="call-now-btn" (click)="callNow(hall.phoneNumber)">Chat Now</button>
+                    <button class="book-now-btn"  (click)="openModal(hall); $event.stopPropagation()">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <app-user-bookings *ngIf="showBookingsSection"></app-user-bookings>
+
+ <!-- Modal for User Details -->
+
+ <div *ngIf="isModalOpen" class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Book Hall</h2>
+      
+      <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+        <label for="name">Your Name:</label>
+        <input id="name" [(ngModel)]="userDetails.name" name="name" required #name="ngModel" />
+        <div *ngIf="name.invalid && name.touched" class="error">Name is required</div>
+  
+        <label for="email">Your Email:</label>
+        <input id="email" [(ngModel)]="userDetails.email" name="email" required email #email="ngModel" />
+        <div *ngIf="email.invalid && email.touched" class="error">Valid email is required</div>
+  
+        <label for="phone">Your Phone:</label>
+        <input id="phone" [(ngModel)]="userDetails.phone" name="phone" required pattern="^\+?[0-9]{10,15}$" #phone="ngModel" />
+        <div *ngIf="phone.invalid && phone.touched" class="error">Phone number is required and should be valid</div>
+  
+        <label for="startDate">Start Date:</label>
+        <input id="startDate" [(ngModel)]="userDetails.startDate" name="startDate" type="date" required #startDate="ngModel" />
+        <div *ngIf="startDate.invalid && startDate.touched" class="error">Start date is required</div>
+  
+        <label for="endDate">End Date:</label>
+        <input id="endDate" [(ngModel)]="userDetails.endDate" name="endDate" type="date" required #endDate="ngModel" (change)="calculateCost(userDetails.cost)" />
+        <div *ngIf="endDate.invalid && endDate.touched" class="error">End date is required</div>
+  
+        <label for="cost">Hall Cost:</label>
+        <input id="cost" [(ngModel)]="userDetails.cost" name="cost" type="text" readonly />
+        
+        <button type="submit" class="submit-btn" [disabled]="bookingForm.invalid">Confirm Booking</button>
+      </form>
+      
+      <button (click)="closeModal()" class="close-btn">Cancel Booking</button>
+    </div>
+  </div>
+  
+
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true" [ngClass]="{'show': showModal}" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookingModalLabel">Hall Booked Successfully</h5>
+          <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Congratulations! The hall has been successfully booked for your event. 
+          <br><br>
+          You will receive an email confirmation shortly with all the details.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="closeNewModal()">OK</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  

@@ -1,0 +1,110 @@
+/* Add global padding to the container */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.signup-container {
+    background: linear-gradient(45deg, #004e92, #000428);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px; 
+}
+.signup-container:hover {
+    background-color: #a6a6c1; 
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    color: #fff;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], select {
+    margin-top: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.modal-content {
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-body {
+    font-size: 16px;
+    text-align: center;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.modal-footer .btn {
+    width: auto;
+}
+
+.is-invalid {
+    border: 1px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+.password-container {
+    position: relative;
+  }
+  
+  .toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  

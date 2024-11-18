@@ -1,0 +1,364 @@
+/* Dashboard container */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #c2c2d3;
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .add-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .add-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .search-bar {
+    flex: 1;
+    max-width: 300px;
+    margin-left: 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-bar input:focus {
+    border-color: #4CAF50;
+  }
+  
+
+  
+  /* Card List Container */
+  .card-list {
+    display: flex;
+    flex-direction: column;  /* Stack cards vertically */
+    gap: 20px;
+  }
+  
+  /* Card Style */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 15px;
+    width: 1000px; /* Reduced card width */
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center; /* Align items to the start */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Moves card up slightly */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+  
+  /* Card Content */
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .card-details p:nth-child(4) {
+    color: #23dd30;
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  card-details h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-details p {
+    font-size: 1.1rem;
+    color: #777;
+    margin: 5px 0;
+}
+
+.card-details p strong {
+    font-weight: 600;
+}
+  
+
+  /* Card Action Buttons */
+  .card-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .card-actions .btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .card-actions .edit-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .card-actions .edit-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+  }
+  
+  .card-actions .delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .card-actions .delete-btn:hover {
+    background-color: #e53935;
+    transform: translateY(-3px);
+  }
+  
+  /* Add / Update Hall Form */
+  .hall-form {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hall-form h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    color: #444;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  form .btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  form .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  /* Center the 'No Halls' text */
+  .noHalls {
+    text-align: center;
+    color: #777;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .hall-form-overlay {
+    position: fixed;
+    top: 60px; /* Adjust this value as needed */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  
+  .hall-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 90%; 
+    width: 100%;
+    max-width: 600px;
+    overflow-y: auto; 
+    position: relative;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+    padding: 20px; 
+    /* border: 1px solid #ccc;  */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .close-btn {
+    background-color: #dc3545;
+    color: rgb(34, 32, 32);
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  
+  input.form-control {
+    width: 100%;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .add-btn {
+    background-color: #28a745;
+  }
+  
+  .submit-btn {
+    background-color: #007bff;
+  }
+  
+  .submit-btn:hover,
+  .add-btn:hover {
+    opacity: 0.9;
+  }
+  
+
+  .booking-btn {
+    background-color: #4CAF50;  /* Initial button color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
+  }
+  
+  .booking-btn:hover {
+    background-color: #45a049;  /* Slightly darker shade on hover */
+    transform: scale(1.05);  /* Slightly enlarges the button */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More intense shadow on hover */
+    letter-spacing: 1.5px;  /* Adds spacing between letters on hover */
+    background-image: linear-gradient(45deg, #ff7b00, #ffec3d);  /* Gradient effect */
+  }
+  
+  .booking-btn:focus {
+    outline: none; /* Removes focus outline */
+  }
+  
+  @media (max-width: 768px) {
+    .card-list {
+      margin: 0;
+    }
+  
+    /* Card responsive behavior on mobile */
+    .card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  
+    .card-actions {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  
+    .card-actions .btn {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+  

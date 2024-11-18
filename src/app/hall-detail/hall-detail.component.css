@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Hall details container */
+  .hall-details-container {
+    max-width: 500px; /* Reduce width for a more compact layout */
+    margin: 40px auto; /* Reduced top margin */
+    padding: 20px; /* Reduced padding for compactness */
+    background: linear-gradient(135deg, rgba(212, 133, 133, 0.8), rgba(240, 240, 240, 0.9)); /* Gradient overlay */
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards; /* Shortened animation */
+  }
+
+  .hall-details-container:hover{
+    cursor: pointer;
+  }
+  
+
+  .details-container p:nth-child(4) {
+    color: #23dd30;
+    font-weight: 800;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  /* Image styling */
+  .hall-image {
+    width: 70%; /* Smaller image size */
+    max-width: 350px; /* Max width of image */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hall-image:hover {
+    transform: scale(1.05); /* Hover effect to enlarge the image */
+  }
+  
+  /* Details Container */
+  .details-container {
+    font-size: 14px; /* Smaller text size */
+    color: #333;
+    padding-top: 12px; /* Reduced padding to make it tighter */
+  }
+  
+  /* Title styling */
+  .hall-name {
+    font-size: 20px; /* Smaller font size */
+    font-weight: 700;
+    color: #333;
+    margin: 12px 0; 
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .hall-name:hover {
+    color: #007bff; 
+  }
+  
+  .hall-location,
+  .hall-capacity,
+  .hall-cost {
+    font-size: 15px; 
+    margin: 6px 0; 
+    color: #666;
+    font-weight: 400;
+  }
+  
+  .hall-location strong,
+  .hall-capacity strong,
+  .hall-cost strong {
+    color: #333;
+  }
+  
+  /* Animation for the main content */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 480px) {
+    .hall-details-container {
+      padding: 15px; /* Slightly reduced padding for smaller screens */
+    }
+  
+    .hall-image {
+      width: 90%; /* Image width for mobile */
+      max-width: 300px;
+    }
+  
+    .hall-name {
+      font-size: 18px; /* Smaller text size for mobile */
+    }
+  
+    .hall-location,
+    .hall-capacity,
+    .hall-cost {
+      font-size: 14px; /* Reduced text size for mobile */
+    }
+  }
+  

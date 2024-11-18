@@ -1,0 +1,53 @@
+<div class="login-container">
+  <div class="login-form">
+    <h2>Sign In</h2>
+    <form (ngSubmit)="signin()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          [(ngModel)]="credentials.email"
+          name="email"
+          #email="ngModel"
+          required
+          email
+          placeholder="Enter your email"
+        />
+        <!-- Email Validation Messages -->
+        <div *ngIf="email.touched && email.invalid" class="error-message">
+          <small *ngIf="email.errors?.['required']">Email is required.</small>
+          <small *ngIf="email.errors?.['email']">Please enter a valid email.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-container">
+          <input
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            id="password"
+            [(ngModel)]="credentials.password"
+            name="password"
+            #password="ngModel"
+            required
+            minlength="6"
+            placeholder="Enter your password"
+          />
+          <button type="button" (click)="togglePasswordVisibility()" class="toggle-btn">
+            <i class="fas" [ngClass]="isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+          </button>
+        </div>
+        <!-- Password Validation Messages -->
+        <div *ngIf="password.touched && password.invalid" class="error-message">
+          <small *ngIf="password.errors?.['required']">Password is required.</small>
+          <small *ngIf="password.errors?.['minlength']">
+            Password must be at least 6 characters.
+          </small>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="loginForm.invalid">Log In</button>
+    </form>
+  </div>
+</div>

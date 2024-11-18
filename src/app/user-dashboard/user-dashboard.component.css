@@ -1,0 +1,327 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: #2d83da; */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Dashboard container */
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 20px; */
+    height: 100vh;
+    background-color: #c2c2d3;
+  }
+  
+  /* Filter section styling */
+  /* .filter-section {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+  } */
+  .filter-section {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 70px;
+  }
+  
+  .bookings {
+    margin-right: 200px; 
+    margin-left: 0px;
+  }
+  
+  .search-bar {
+    margin-right: 20px;  /* Optional: Add some space to the right of the search bar */
+  }
+  
+  .filter-section label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .filter-section select {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 200px;
+  }
+  
+  /* No halls message */
+  .no-halls-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  
+  /* Hall list styling */
+  .hall-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 3fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+
+  .hall-card {
+    background: linear-gradient(45deg, #004e92, #000428);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .hall-card:hover {
+    background-color: #ffffffbd;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  .hall-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ebe4e4;
+    margin-bottom: 15px;
+  }
+  
+  .hall-card p {
+    font-size: 1rem;
+    color: #ebe4e4;
+    margin: 5px 0;
+  }
+  
+  /* Contact number styling */
+  .hall-card p:nth-child(4) {
+    color: #23dd30;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .hall-card p:nth-child(4):hover {
+    color: #0056b3;
+  }
+  
+  /* Cost styling */
+  .hall-card p:last-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 10px;
+  }
+  
+  /* Image styling */
+  .hall-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .hall-image:hover {
+    transform: scale(1.05);
+  }
+
+
+  .button-row {
+    display: flex;
+    justify-content: space-between; /* Ensures space between buttons */
+    margin-top: 10px;
+  }
+  
+  .call-now-btn, .book-now-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .call-now-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  
+  .book-now-btn {
+    background-color: #007bff; /* Blue */
+    color: white;
+  }
+  
+  .call-now-btn:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  .book-now-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+  }
+  .booking-btn {
+    background-color: #eb9957;  /* Initial button color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
+    transform: translateX(0);  /* Default position */
+  }
+  
+  .booking-btn:hover {
+    background-color: #45a049;
+    transform: translateX(10px);  /* Move the button to the right when hovered */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+    background-image: linear-gradient(45deg, #ff7b00, #ffec3d);
+  }
+  
+  .booking-btn:focus {
+    transform: translateX(10px);  /* Same move when button is focused */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Same shadow on focus */
+  }
+  
+
+ /* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Start the modal from the top */
+  z-index: 1000;
+  padding-top: 60px; /* Adjust this value to create space between the modal and navbar */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px; /* Optional: to limit the modal width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;  /* Enable vertical scrolling */
+  max-height: 80vh;  /* Modal content will scroll when it exceeds 80% of viewport height */
+  position: relative;
+  margin-top: 1px;  /* Ensure it has a small margin from the top (in case it's needed) */
+}
+
+button.close-btn,
+button.submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button.close-btn {
+  background-color: red;
+  margin-top: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+/* Optional: Styling for form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+
+/* Custom Modal Styling */
+#bookingModal .modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#bookingModal .modal-header {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#bookingModal .modal-footer {
+  border-top: none;
+}
+
+#bookingModal .btn-primary {
+  background-color: #4CAF50;
+  border: none;
+}
+
+#bookingModal .btn-close {
+  background-color: transparent;
+  border: none;
+}
+
+
+
+
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 10px;
+    }
+  
+    .filter-section {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .hall-list {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+  
+
+  

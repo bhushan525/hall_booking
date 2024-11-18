@@ -1,0 +1,25 @@
+<div class="hall-details-container">
+  <div class="image-container">
+    <img *ngIf="hall.imageUrl" [src]="hall.imageUrl" alt="Hall Image" class="hall-image" />
+  </div>
+  <div class="details-container">
+    <h2 class="hall-name">{{ hall.name }}</h2>
+    <p class="hall-location"><strong>Location: </strong> {{ hall.location }}</p>
+    <p class="hall-capacity"><strong>Capacity: </strong> {{ hall.capacity }} seats</p>
+    <p class="hall-cost"><strong>Cost:</strong> {{ hall.cost | currency:'INR':'symbol' }}</p>
+
+    <!-- Email Section -->
+    <p class="hall-email">
+      <strong>Email: </strong>
+      <span *ngIf="isEmailVisible">{{ hall.email}}</span> 
+     <i class="fas" [ngClass]="isEmailVisible ? 'fa-envelope' : 'fa-envelope-open'"></i>
+    </p>
+
+    <!-- Phone Section -->
+    <p class="hall-phone">
+      <strong>Phone: </strong>
+      <span *ngIf="isPhoneVisible">{{ hall.phoneNumber}}</span>
+      <i class="fas" [ngClass]="isPhoneVisible ? 'fa-phone' : 'fa-phone-slash'"></i>
+    </p>
+  </div>
+</div>

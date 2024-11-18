@@ -1,0 +1,116 @@
+/* Apply some basic reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Center the login form in the viewport */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background-color: #c2c2d3;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adds smooth transition for background color and scale */
+}
+
+
+.login-container:hover {
+    background-color: #a6a6c1; 
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+  
+  .login-form {
+    background: linear-gradient(45deg, #004e92, #000428);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #fcf7f7;
+  }
+  
+  /* Style form groups for inputs */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #fcf7f7;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  button.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #187eeb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  button.submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  button.submit-btn:active {
+    background-color: #00408d;
+  }
+
+  .password-container {
+    position: relative;
+  }
+  
+  .toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .toggle-btn:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  input.ng-touched.ng-invalid {
+    border-color: red;
+  }

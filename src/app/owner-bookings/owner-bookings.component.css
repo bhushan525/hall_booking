@@ -1,0 +1,36 @@
+.card {
+    width: 300px; /* Adjust width as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 15px; /* Margin outside the card */
+    padding: 10px; /* Padding inside the card */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  }
+  
+  .card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-body {
+    text-align: left;
+    padding: 10px; /* Padding inside the card body */
+  }
+  
+  .card-title {
+    font-size: 1rem; /* Smaller text size */
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 0.875rem; /* Smaller text size */
+    margin-bottom: 8px;
+  }
+  
